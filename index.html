@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#172b45">
+  <title>BMW Paintjob — Daily Challenge</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="completion_modal.css">
+</head>
+<body>
+  <div class="game-container">
+    <header class="game-header">
+      <h1>Guess the BMW Paintjob</h1>
+      <div class="mode-selector"><button class="mode-btn" type="button" aria-current="page">Daily Challenge</button></div>
+      <div class="score-display"><span>Daily Challenge</span><span id="challenge-progress">Car 1 of 3</span></div>
+    </header>
+
+    <main class="game-main">
+      <div class="media-panel">
+        <section class="video-container" aria-label="BMW paint video">
+          <video id="car-video" class="car-video" muted playsinline preload="auto">Your browser does not support the video tag.</video>
+          <div id="video-placeholder" class="video-placeholder">Loading video...</div>
+        </section>
+        <figure class="paint-sample-container">
+          <img id="paint-sample-image" class="paint-sample-image" alt="BMW paint sample">
+          <div id="paint-image-fallback" class="paint-image-fallback">Paint sample unavailable</div>
+          <figcaption>Paint sample</figcaption>
+        </figure>
+      </div>
+
+      <div id="wordle-attempts" class="wordle-attempts">
+        <div class="attempt-indicator">Attempt <span id="current-attempt">1</span><span>/</span><span id="max-attempts">5</span></div>
+      </div>
+
+      <section class="guess-section" aria-label="Submit a paint guess">
+        <label class="guess-label" for="guess-input">What's this paint color?</label>
+        <div class="input-wrapper">
+          <input id="guess-input" class="guess-input" type="text" autocomplete="off" spellcheck="false" placeholder="Type a paint name or code..." aria-autocomplete="list" aria-controls="suggestions">
+          <div id="suggestions" class="suggestions-dropdown" role="listbox"></div>
+        </div>
+        <button id="submit-guess" class="submit-btn" type="button">Submit Guess</button>
+      </section>
+
+      <div id="wordle-grid" class="wordle-grid" aria-live="polite"></div>
+      <div id="feedback" class="feedback-message" aria-live="polite"></div>
+      <section id="previous-guesses" class="previous-guesses"><h3>Previous Guesses</h3><div id="guesses-list"></div></section>
+      <section id="share-panel" class="share-panel hidden" aria-live="polite"><h2>Daily Results</h2><pre id="share-result"></pre><button id="share-button" class="submit-btn" type="button">Copy Shareable Results</button><span id="share-status"></span></section>
+    </main>
+
+    <footer class="game-footer">Three cars every day, Five guesses per car</footer>
+  </div>
+
+<p
+  class="site-disclaimer"
+  style="width: min(100%, 980px); margin: 14px auto 0; padding: 0 14px; color: #ffffff; opacity: 0.5; text-align: center; font-size: 0.78rem; line-height: 1.45;"
+>
+  This website is not operated by BMW and does not claim ownership of any BMW-related media or trademarks.
+</p>
+
+  <div id="completion-modal" class="completion-modal hidden" role="dialog" aria-modal="true" aria-labelledby="completion-title">
+    <div class="completion-card">
+      <h2 id="completion-title">Daily Results</h2>
+      <pre id="modal-share-result"></pre>
+      <button id="modal-share-button" class="submit-btn" type="button">Share Results</button>
+      <p>Next challenge in:</p>
+      <div id="countdown" class="countdown">00:00:00</div>
+      <span id="modal-share-status" class="share-status"></span>
+    </div>
+  </div>
+
+  <script src="image_dataset_loader.js"></script>
+  <script src="daily-challenge.js"></script>
+</body>
+</html>

@@ -1,0 +1,77 @@
+/* Media layout: the paint-sample frame is sized by the image itself. */
+
+.media-panel {
+    width: 100%;
+    max-width: 900px;
+    display: grid;
+    grid-template-columns: minmax(0, 1.65fr) minmax(220px, .85fr);
+    gap: 16px;
+    align-items: start;
+}
+
+.video-container {
+    position: relative;
+    min-width: 0;
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+    border-radius: 14px;
+    background: #090d12;
+}
+
+/* Do not give this element a height, aspect ratio, min-height, or background. */
+.paint-sample-container {
+    position: relative;
+    width: max-content;
+    max-width: 100%;
+    height: max-content;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    border-radius: 14px;
+    overflow: hidden;
+    line-height: 0;
+    background: transparent;
+}
+
+.paint-sample-image {
+    display: block;
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: none;
+    object-fit: initial;
+    border: 1px solid rgba(255,255,255,.16);
+    border-radius: 14px;
+}
+
+.paint-sample-container figcaption {
+    position: absolute;
+    right: 10px;
+    bottom: 8px;
+    padding: 4px 8px;
+    border-radius: 5px;
+    color: #fff;
+    background: rgba(0,0,0,.72);
+    font-size: .75rem;
+    line-height: normal;
+    pointer-events: none;
+}
+
+.paint-image-fallback {
+    display: none;
+}
+
+@media (max-width: 700px) {
+    .media-panel {
+        grid-template-columns: 1fr;
+    }
+
+    .paint-sample-container {
+        width: 100%;
+    }
+
+    .paint-sample-image {
+        width: auto;
+        max-width: 100%;
+    }
+}
