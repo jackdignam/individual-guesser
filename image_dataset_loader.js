@@ -53,6 +53,10 @@ function collapsePaintRows(rows) {
     return {
       paint_id: code, code, official_name: name,
       finish: normaliseFinish(getField(first, ['painttype','paint_type','paintType','finish']), name),
+      color_family: String(getField(first, ['color_family','colour_family']) || 'Unreviewed').trim(),
+      color_family_source: String(getField(first, ['color_family_source']) || 'unreviewed').trim(),
+      color_family_status: String(getField(first, ['color_family_status']) || 'unreviewed').trim(),
+      image_review_status: String(getField(first, ['image_review_status']) || 'unreviewed').trim(),
       type: individual ? 'individual' : 'factory',
       is_m_color: inferMColour(name), is_individual: individual,
       first_year_offered: firstYear(code), video_url: videoUrl, image_url: imageUrl,
