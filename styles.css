@@ -6,3 +6,30 @@
 @media(max-width:360px){.mode-cards{grid-template-columns:1fr}.mode-card{min-height:125px}.wordle-grid-row{grid-template-columns:repeat(2,minmax(0,1fr))}.wordle-grid-cell{padding:6px}.wordle-grid-cell .grid-value{font-size:.63rem}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;transition:none!important}}
 .daily-test-note{margin:12px 0;padding:10px 12px;border:1px solid #796946;color:var(--amber);background:#302b20;font:400 .65rem/1.6 var(--mono);letter-spacing:.025em}
+
+/* Keep the landing page composed on narrow phone viewports. */
+@media(max-width:650px){
+  .site-shell{width:calc(100% - 32px)}
+  .site-header{min-width:0;gap:12px}
+  .wordmark{min-width:0;gap:8px;letter-spacing:.09em}
+  .wordmark small{font-size:.48rem;letter-spacing:.07em}
+  .header-note{flex-shrink:0;white-space:nowrap;font-size:.49rem;letter-spacing:.05em}
+  .home-view h1{font-size:clamp(3rem,14vw,4.25rem);line-height:.94;letter-spacing:-.075em}
+  .hero-kicker{align-items:flex-start;flex-wrap:wrap;gap:7px 12px;line-height:1.5}
+  .hero-kicker span:last-child{margin-left:auto;text-align:right}
+  .mode-cards{grid-template-columns:minmax(0,1fr)}
+  .mode-card{min-width:0;min-height:116px}
+  .mode-card>*{min-width:0;max-width:100%}
+  .card-title{line-height:1.2;overflow-wrap:anywhere}
+  .site-disclaimer{width:calc(100% - 32px)!important;max-width:980px;overflow-wrap:anywhere}
+}
+@media(max-width:380px){
+  .site-shell{width:calc(100% - 24px)}
+  .site-header{gap:8px}
+  .wordmark{font-size:.68rem}
+  .wordmark small{font-size:.43rem}
+  .header-note{font-size:.44rem}
+  .home-view{margin-top:54px}
+  .home-view h1{font-size:clamp(2.8rem,14vw,3.25rem)}
+  .hero-copy{font-size:.85rem}
+}
