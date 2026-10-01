@@ -1,5 +1,17 @@
 /* Robust loader for the renamed BMW JSON dataset. */
 const PAINT_DATA_URL = 'bmw_individual_colours_complete_five_models_with_images.json';
+const BMW_MODEL_ALLOWLIST = new Set([
+  'm340i', 'm340i touring', 'm3', 'm3 competition sedan', 'm3 competition touring',
+  '4 series coupe', '4 series cabrio', 'm440i', 'm4 competition',
+  'm4 competition cabrio', 'm440i gran coupe', 'i4', 'i4 m50', 'm2 coupe'
+]);
+
+function normaliseModel(value) {
+  return String(value || '')
+    .normalize('NFKD').replace(/[\u0300-\u036f]/g, '')
+    .toLowerCase().replace(/^bmw\s+/, '')
+    .replace(/[^a-z0-9]+/g, ' ').trim().replace(/\s+/g, ' ');
+}
 
 function getField(row, names) {
   for (const name of names) {
@@ -42,8 +54,14 @@ function collapsePaintRows(rows) {
     groups.get(code).push(row);
   });
 
-  return [...groups.entries()].map(([code, group]) => {
-    const first = group[0];
+  return [...groups.entries()].flatMap(([code, group]) => {
+    const eligibleRows = group.filter((row) => BMW_MODEL_ALLOWLIST.has(normaliseModel(getField(row, ['model']))));
+    if (!eligibleRows.length) return [];
+
+    // Use media and paint metadata from an allowed-model record only. A shared
+    // paint code may also have records for models outside the allowlist.
+    const eligibleGroup = eligibleRows;
+    const first = eligibleGroup[0];
     const name = String(getField(first, ['paintname','paint_name','paintName','official_name','name']) || code).trim();
     const modelUrl = normaliseUrl(getField(first, ['modelurl','model_url','modelUrl','visualizer_url']));
     const videoUrl = normaliseUrl(getField(first, ['videourl','video_url','videoUrl','allvideourls','all_video_urls']));
@@ -60,9 +78,9 @@ function collapsePaintRows(rows) {
       type: individual ? 'individual' : 'factory',
       is_m_color: inferMColour(name), is_individual: individual,
       first_year_offered: firstYear(code), video_url: videoUrl, image_url: imageUrl,
-      visualizer_url: modelUrl, models: [...new Set(group.map((r) => getField(r, ['model'])).filter(Boolean))],
-      model_records: group, has_video: Boolean(videoUrl), has_image: Boolean(imageUrl), synonyms: []
-    };
+      visualizer_url: modelUrl, models: [...new Set(eligibleGroup.map((r) => getField(r, ['model'])).filter(Boolean))],
+      model_records: eligibleGroup, has_video: Boolean(videoUrl), has_image: Boolean(imageUrl), synonyms: []
+    }];
   });
 }
 
