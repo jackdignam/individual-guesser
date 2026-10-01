@@ -68,7 +68,7 @@ function collapsePaintRows(rows) {
     const imageUrl = normaliseUrl(getField(first, ['staticimageurl','static_image_url','staticImageUrl','image_url','imageUrl']));
     const individual = inferIndividual(name, modelUrl);
 
-    return {
+    return [{
       paint_id: code, code, official_name: name,
       finish: normaliseFinish(getField(first, ['painttype','paint_type','paintType','finish']), name),
       color_family: String(getField(first, ['color_family','colour_family']) || 'Unreviewed').trim(),
