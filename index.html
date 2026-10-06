@@ -4,25 +4,22 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#101719">
-  <meta name="description" content="A daily guessing game for rare BMW Individual paint finishes.">
-  <title>Paint Study — BMW Individual Daily</title>
+  <title>PaintGuessr</title>
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="completion_modal.css">
 </head>
 <body>
   <div class="site-shell">
     <header class="site-header">
-      <a class="wordmark" href="#home" aria-label="Paint Study home"><span class="wordmark-mark">PS</span><span>PAINT STUDY<small>AN AUTOMOTIVE COLOUR GAME</small></span></a>
-      <span class="header-note"><i></i> DAILY CHALLENGE</span>
     </header>
 
     <main id="home-view" class="home-view">
-      <div class="hero-kicker"><span>01 / BMW INDIVIDUAL</span><span>THREE CARS · FIVE GUESSES</span></div>
-      <h1>Know your<br><em>colour.</em></h1>
-      <p class="hero-copy">A daily study in rare finishes. Read the car, name the paint, and use each clue to get closer.</p>
+      <div class="hero-kicker"><span>THREE CARS · FIVE GUESSES</span></div>
+      <h1>Paint<em>Guessr</em></h1>
+      <p class="hero-copy">Test your eye on BMW Individual paint</p>
       <div class="mode-cards">
-        <button class="mode-card active" id="start-bmw" type="button"><span class="card-index">01</span><span class="card-title">BMW Individual</span><span class="card-subtitle">THE DAILY GAME <b>↗</b></span></button>
-        <div class="mode-card future" aria-disabled="true"><span class="card-index">02</span><span class="card-title">Paint to Sample</span><span class="card-subtitle">PORSCHE <b>COMING LATER</b></span></div>
+        <button class="mode-card active" id="start-bmw" type="button"><span class="card-title">BMW Individual</span><span class="card-subtitle">DAILY GAME <b>↗</b></span></button>
+        <div class="mode-card future" aria-disabled="true"><span class="card-title">Porsche PTS</span><span class="card-subtitle">PORSCHE <b>COMING SOON...</b></span></div>
       </div>
       <p class="home-foot">Independent fan project · Not affiliated with BMW</p>
     </main>
@@ -31,7 +28,7 @@
     <button class="back-link" id="back-home" type="button">← ALL GAMES</button>
     <aside id="daily-test-note" class="daily-test-note hidden" role="status"></aside>
     <header class="game-header">
-      <div><span class="eyebrow">BMW INDIVIDUAL / DAILY STUDY</span><h1>Name that <em>finish.</em></h1></div>
+      <div><span class="eyebrow">BMW INDIVIDUAL</span><h1>Name that Individual</h1></div>
       <div class="score-display"><span>DAILY CHALLENGE</span><span id="challenge-progress">Car 1 of 3</span></div>
     </header>
 
@@ -50,16 +47,16 @@
 
       <div id="wordle-attempts" class="wordle-attempts">
         <div class="attempt-indicator">Attempt <span id="current-attempt">1</span><span>/</span><span id="max-attempts">5</span></div>
-        <span class="attempt-note">NAME THE PAINT · USE THE CLUES</span>
+        <span class="attempt-note">GUESS THE PAINTJOB · USE THE CLUES</span>
       </div>
 
       <section class="guess-section" aria-label="Submit a paint guess">
-        <label class="guess-label" for="guess-input">Your paint identification</label>
+        <label class="guess-label" for="guess-input">Submit a paint guess</label>
         <div class="input-wrapper">
-          <input id="guess-input" class="guess-input" type="text" autocomplete="off" spellcheck="false" placeholder="Search a colour name or paint code" aria-autocomplete="list" aria-controls="suggestions">
+          <input id="guess-input" class="guess-input" type="text" autocomplete="off" spellcheck="false" placeholder="Search a colour name" aria-autocomplete="list" aria-controls="suggestions">
           <div id="suggestions" class="suggestions-dropdown" role="listbox"></div>
         </div>
-        <button id="submit-guess" class="submit-btn" type="button">Lock in guess <span>↗</span></button>
+        <button id="submit-guess" class="submit-btn" type="button">Lock in guess</button>
       </section>
 
       <div id="wordle-grid" class="wordle-grid" aria-live="polite"></div>
@@ -68,7 +65,7 @@
       <section id="share-panel" class="share-panel hidden" aria-live="polite"><h2>Daily Results</h2><pre id="share-result"></pre><button id="share-button" class="submit-btn" type="button">Copy Shareable Results</button><span id="share-status"></span></section>
     </main>
 
-    <footer class="game-footer">One Frozen finish <span>·</span> Three different colour families <span>·</span> New at Dublin midnight</footer>
+    <footer class="game-footer"> Resets at midnight Ireland time (GMT+1)</footer>
     </div>
   </div>
 
@@ -94,3 +91,4 @@
   <script src="daily-challenge.js"></script>
 </body>
 </html>
+
