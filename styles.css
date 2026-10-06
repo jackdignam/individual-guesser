@@ -33,3 +33,11 @@
   .home-view h1{font-size:clamp(2.8rem,14vw,3.25rem)}
   .hero-copy{font-size:.85rem}
 }
+
+/* The landing page no longer has a header above it. */
+.home-view{margin-top:clamp(32px,5vh,56px)}
+@media(max-width:650px){.home-view{margin-top:38px}}
+
+/* Keep the page background gradient continuous across the full viewport and while scrolling. */
+body{background-image:radial-gradient(ellipse at 75% 0%,#273638 0,transparent 55%);background-attachment:fixed}
+.site-shell{display:flow-root}
