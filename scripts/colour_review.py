@@ -24,7 +24,7 @@ OUTPUT = ROOT / "bmw_individual_colours_complete_five_models_with_images.json"
 OVERRIDES = ROOT / "data" / "color-family-overrides.csv"
 REVIEW = ROOT / "data" / "colour-review.csv"
 CACHE = ROOT / "data" / "image-cache"
-FAMILIES = {"Blue", "Green", "Red", "Purple", "Yellow", "Orange", "Brown", "Bronze", "Grey", "Silver", "White", "Black", "Unknown"}
+FAMILIES = {"Blue", "Green", "Red", "Purple", "Yellow", "Orange", "Brown", "Bronze", "Grey", "Silver", "White", "Black", "Beige", "Unknown"}
 
 
 def family_hint(name: str) -> str:

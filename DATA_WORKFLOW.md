@@ -17,7 +17,7 @@ The BMW COSY renderer can show a vehicle/render rather than an isolated, control
 
 ## Correct assignments and rebuild
 
-Edit `data/color-family-overrides.csv`, keeping one row per paint code. Supported families are Blue, Green, Red, Purple, Yellow, Orange, Brown, Bronze, Grey, Silver, White, Black, and Unknown. Set `family_status` to `reviewed`, `provisional`, or `unreviewed`; set `image_review_status` to `reviewed`, `needs-review`, `fetch-failed`, or `unavailable`; use `review_note` to record why a rendered image is misleading or an assignment differs from the name hint. The override file is the hand-maintained source of truth and is not rewritten by either command.
+Edit `data/color-family-overrides.csv`, keeping one row per paint code. Supported families are Blue, Green, Red, Purple, Yellow, Orange, Brown, Bronze, Grey, Silver, White, Black, Beige, and Unknown. Set `family_status` to `reviewed`, `provisional`, or `unreviewed`; set `image_review_status` to `reviewed`, `needs-review`, `fetch-failed`, or `unavailable`; use `review_note` to record why a rendered image is misleading or an assignment differs from the name hint. The override file is the hand-maintained source of truth and is not rewritten by either command.
 
 Then run:
 
